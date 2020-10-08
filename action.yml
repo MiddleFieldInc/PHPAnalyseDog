@@ -1,0 +1,55 @@
+name: 'PHPAnalyseDog'
+description: 'PHP code analyse on pull request and review comment via reviewdog.'
+author: 'MiddleField Inc.'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+  level:
+    description: 'Report level for reviewdog [info, warning, error]'
+    default: 'error'
+  reporter:
+    description: 'Reporter of the rebiewdog command [github-pr-check, github-pr-review]'
+    default: 'github-pr-review'
+  filter_mode:
+    description: 'Filtering mode for the reviewdog command [added, diff_context, file, nofilter]'
+    default: 'added'
+  fail_on_error:
+    description: 'Exit code for reviewdog when errors are found [true, false]'
+    default: true
+  reviewdog_args:
+    description: 'Additional reviewdog options'
+    default: ''
+  phpcs:
+    description: 'Enable PHP_CodeSniffer [true, false]'
+    default: true
+  phpmd:
+    description: 'Enable PHPMD [true, false]'
+    default: false
+  phinder:
+    description: 'Enable Phinder [true, false]'
+    default: false
+  phpcs_args:
+    description: 'PHP_CodeSniffer command args'
+    default: '. --standard=PSR12 --report=json -q'
+  phpmd_args:
+    description: 'PHPMD command args'
+    default: '. json cleancode,codesize,controversial,design,naming,unusedcode --suffixes php'
+  phinder_args:
+    description: 'Phinder command args'
+    default: 'find . -f "json"'
+  workdir:
+    description: 'The directory from which to look for and run commands'
+    default: '.'
+  update_dependency:
+    description: 'Update dependencies if you have "composer.json" in workdir'
+    default: false
+  debug:
+    description: 'Output debug messages'
+    default: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'green'
+  color: 'gray-dark'
