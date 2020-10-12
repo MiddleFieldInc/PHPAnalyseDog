@@ -22,6 +22,8 @@
             </property>
         </properties>
     </rule>
+    <rule ref="Squiz.Arrays.ArrayDeclaration.NoComma"/>
+    <rule ref="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
     <rule ref="Squiz.PHP.NonExecutableCode.ReturnNotRequired"/>
     <rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired">
         <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
