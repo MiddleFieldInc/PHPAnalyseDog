@@ -15,7 +15,7 @@ reviewdog_args|Additional reviewdog options|false|''
 phpcs|Enable PHP_CodeSniffer [true, false]|false|true
 phpmd|Enable PHPMD [true, false]|false|false
 phinder|Enable Phinder [true, false]|false|false
-phpcs_args|PHP_CodeSniffer command args|false|'. --standard=PSR12 --report=json -q'
+phpcs_args|PHP_CodeSniffer command args|false|'. --standard=/phpcs.xml'
 phpmd_args|PHPMD command args|false|'. json cleancode,codesize,controversial,design,naming,unusedcode'
 phinder_args|Phinder command args|false|'find -f "json" .'
 workdir|The directory from which to look for and run commands|false|'.'

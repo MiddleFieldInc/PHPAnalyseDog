@@ -7,6 +7,7 @@ RUN composer global require squizlabs/php_codesniffer phpmd/phpmd sider/phinder
 
 FROM php:${PHP_VERSION}-cli-alpine
 COPY --from=build /tmp/vendor /root/.composer/vendor
+COPY configs/phpcs.default.xml /phpcs.xml
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
@@ -17,5 +18,7 @@ RUN ln -s /root/.composer/vendor/bin/phpmd /usr/local/bin/phpmd
 RUN ln -s /root/.composer/vendor/bin/phpcs /usr/local/bin/phpcs
 RUN ln -s /root/.composer/vendor/bin/phpcbf /usr/local/bin/phpcbf
 RUN ln -s /root/.composer/vendor/bin/phinder /usr/local/bin/phinder
+
+WORKDIR /data
 
 ENTRYPOINT ["/entrypoint.sh"]

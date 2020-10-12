@@ -31,7 +31,7 @@ inputs:
     default: false
   phpcs_args:
     description: 'PHP_CodeSniffer command args'
-    default: '. --standard=PSR12 --report=json -q'
+    default: '. --standard=/phpcs.xml'
   phpmd_args:
     description: 'PHPMD command args'
     default: '. json cleancode,codesize,controversial,design,naming,unusedcode --suffixes php'
